@@ -3,9 +3,7 @@ description: "记录软件工程、AI 与系统实践"
 lang: zh-CN
 timezone: Asia/Shanghai
 url: "https://linuxdazhao.github.io"
-author:
-  name: "钊 景"
-  url: "https://github.com/Linuxdazhao"
+author: Linuxdazhao
 github_username: Linuxdazhao
 theme: minima
 show_excerpts: true
