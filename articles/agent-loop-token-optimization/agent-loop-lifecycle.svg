@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="860" viewBox="0 0 1440 860" role="img" aria-labelledby="title desc">
+  <title id="title">Agent Loop 请求生命周期的六个 Token 优化切入点</title>
+  <desc id="desc">以一条 Agent Loop 生命周期主线标出六个优化切口：少发、发得便宜、少想、隔离探索过程、Hook 拦截以及按推理深度换模型。</desc>
+  <defs>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#0f172a" stroke-opacity=".035" stroke-width="1"/>
+    </pattern>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0L10 5 0 10Z" fill="#334155"/>
+    </marker>
+    <marker id="arrowLight" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0L10 5 0 10Z" fill="#94a3b8"/>
+    </marker>
+    <style>
+      .title{font:700 36px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif;fill:#0f172a}
+      .sub{font:400 17px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif;fill:#64748b}
+      .phase{font:700 15px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:1.4px;fill:#2563eb}
+      .phaseName{font:600 17px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif;fill:#334155}
+      .n{font:800 15px ui-monospace,SFMono-Regular,Menlo,monospace;fill:#fff}
+      .h{font:700 23px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif;fill:#0f172a}
+      .p{font:400 16px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif;fill:#526174}
+      .mono{font:600 13px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.7px;fill:#64748b}
+      .leader{fill:none;stroke:#94a3b8;stroke-width:1.5}
+      .joint{fill:#fff;stroke:#2563eb;stroke-width:3}
+      .slash{stroke:#f97316;stroke-width:6;stroke-linecap:round}
+    </style>
+  </defs>
+
+  <rect width="1440" height="860" fill="#fbfcfe"/>
+  <rect width="1440" height="860" fill="url(#grid)"/>
+
+  <text x="72" y="76" class="title">Agent Loop 请求生命周期 · 六刀</text>
+  <text x="72" y="108" class="sub">每一刀都落在成本产生的位置：请求组装、模型推理，或下一轮开始之前</text>
+  <text x="1368" y="76" text-anchor="end" class="mono">TOKEN COST / REQUEST LIFECYCLE</text>
+
+  <!-- Top annotations -->
+  <g>
+    <circle cx="92" cy="176" r="17" fill="#2563eb"/>
+    <text x="92" y="181" text-anchor="middle" class="n">1</text>
+    <text x="122" y="182" class="h">少发</text>
+    <text x="92" y="216" class="p">裁剪 System Prompt · Deferred Tools</text>
+    <text x="92" y="244" class="p">去重 · CLI + Skills</text>
+    <path d="M250 258V318H286V354" class="leader"/>
+  </g>
+
+  <g>
+    <circle cx="502" cy="176" r="17" fill="#2563eb"/>
+    <text x="502" y="181" text-anchor="middle" class="n">2</text>
+    <text x="532" y="182" class="h">发得便宜</text>
+    <text x="502" y="216" class="p">显式缓存断点</text>
+    <text x="502" y="244" class="p">按稳定性组织请求前缀</text>
+    <path d="M620 258V318H552V354" class="leader"/>
+  </g>
+
+  <g>
+    <circle cx="932" cy="176" r="17" fill="#2563eb"/>
+    <text x="932" y="181" text-anchor="middle" class="n">3</text>
+    <text x="962" y="182" class="h">少想</text>
+    <text x="932" y="216" class="p">辅助调用关闭思考</text>
+    <text x="932" y="244" class="p">thinking_budget 设硬上限</text>
+    <path d="M1048 258V318H878V354" class="leader"/>
+  </g>
+
+  <!-- Lifecycle axis -->
+  <g>
+    <text x="142" y="337" class="phase">PHASE A</text>
+    <text x="142" y="420" class="phaseName">请求组装</text>
+    <text x="702" y="337" class="phase">PHASE B</text>
+    <text x="702" y="420" class="phaseName">模型推理</text>
+    <text x="1168" y="337" class="phase">PHASE C′</text>
+    <text x="1168" y="420" class="phaseName">循环边界</text>
+
+    <path d="M142 380H1288" fill="none" stroke="#cbd5e1" stroke-width="12" stroke-linecap="round"/>
+    <path d="M142 380H660" fill="none" stroke="#60a5fa" stroke-width="12" stroke-linecap="round"/>
+    <path d="M660 380H1070" fill="none" stroke="#f59e0b" stroke-width="12"/>
+    <path d="M1070 380H1288" fill="none" stroke="#34d399" stroke-width="12" stroke-linecap="round"/>
+    <path d="M1288 380C1350 380 1350 492 1288 492H158C96 492 96 438 120 410" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="8 8" marker-end="url(#arrowLight)"/>
+    <text x="720" y="520" text-anchor="middle" class="mono">TOOL RESULT · HISTORY GROWS · NEXT TURN</text>
+
+    <!-- Six cut marks -->
+    <g><circle cx="286" cy="380" r="10" class="joint"/><path d="M276 394L296 366" class="slash"/></g>
+    <g><circle cx="552" cy="380" r="10" class="joint"/><path d="M542 394L562 366" class="slash"/></g>
+    <g><circle cx="878" cy="380" r="10" class="joint"/><path d="M868 394L888 366" class="slash"/></g>
+    <g><circle cx="432" cy="380" r="10" class="joint"/><path d="M422 394L442 366" class="slash"/></g>
+    <g><circle cx="1218" cy="380" r="10" class="joint"/><path d="M1208 394L1228 366" class="slash"/></g>
+    <g><circle cx="994" cy="380" r="10" class="joint"/><path d="M984 394L1004 366" class="slash"/></g>
+  </g>
+
+  <!-- Bottom annotations -->
+  <g>
+    <path d="M432 406V568H244V600" class="leader"/>
+    <circle cx="92" cy="620" r="17" fill="#2563eb"/>
+    <text x="92" y="625" text-anchor="middle" class="n">4</text>
+    <text x="122" y="626" class="h">别让过程进来</text>
+    <text x="92" y="660" class="p">Subagent 隔离探索过程</text>
+    <text x="92" y="688" class="p">主上下文只接收结论</text>
+    <text x="92" y="726" class="mono">PHASE A</text>
+  </g>
+
+  <g>
+    <path d="M1218 406V568H690V600" class="leader"/>
+    <circle cx="536" cy="620" r="17" fill="#2563eb"/>
+    <text x="536" y="625" text-anchor="middle" class="n">5</text>
+    <text x="566" y="626" class="h">Hook</text>
+    <text x="536" y="660" class="p">在循环边界拦截无效轮次</text>
+    <text x="536" y="688" class="p">别让浪费进入下一轮复利</text>
+    <text x="536" y="726" class="mono">PHASE A / C′</text>
+  </g>
+
+  <g>
+    <path d="M994 406V568H1110V600" class="leader"/>
+    <circle cx="982" cy="620" r="17" fill="#2563eb"/>
+    <text x="982" y="625" text-anchor="middle" class="n">6</text>
+    <text x="1012" y="626" class="h">换模型</text>
+    <text x="982" y="660" class="p">按推理深度分配旗舰 / Flash</text>
+    <text x="982" y="688" class="p">不让简单任务支付旗舰单价</text>
+    <text x="982" y="726" class="mono">PHASE B</text>
+  </g>
+
+  <line x1="72" y1="786" x2="1368" y2="786" stroke="#dbe3ec"/>
+  <text x="72" y="818" class="mono">CUT 01—06</text>
+  <text x="1368" y="818" text-anchor="end" class="mono">INPUT → INFERENCE → LOOP BOUNDARY → REPEAT</text>
+</svg>

@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="800" viewBox="0 0 1440 800" role="img" aria-labelledby="title desc">
+  <title id="title">Agent Loop 质量评分月度对比（2026年6月-8月13日）</title>
+  <desc id="desc">quality_evaluation 总分与五个维度的 6、7、8 月评分柱状对比。8 月 1-13 日总分均值 8.54、中位数 9.0，88.1% 的任务达到 8 分及以上，95.8% 达到 6 分及以上。</desc>
+  <defs>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#0f172a" stroke-opacity=".035" stroke-width="1"/>
+    </pattern>
+    <style>
+      .title{font:700 34px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif;fill:#0f172a}
+      .sub{font:400 17px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif;fill:#64748b}
+      .mono{font:600 13px ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.7px;fill:#64748b}
+      .axis{font:500 14px ui-monospace,SFMono-Regular,Menlo,monospace;fill:#94a3b8}
+      .gridline{stroke:#e2e8f0;stroke-width:1}
+      .bar6{fill:#c9d8f0}
+      .bar7{fill:#82a9ea}
+      .bar8{fill:#2563eb}
+      .val{font:700 12px ui-monospace,SFMono-Regular,Menlo,monospace;fill:#64748b}
+      .val8{font:700 12px ui-monospace,SFMono-Regular,Menlo,monospace;fill:#1d4ed8}
+      .gname{font:600 15px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif;fill:#334155}
+      .gen{font:500 11px ui-monospace,SFMono-Regular,Menlo,monospace;fill:#94a3b8}
+      .leg{font:500 14px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif;fill:#475569}
+      .card{fill:#fff;stroke:#dbeafe;stroke-width:1}
+      .cardLabel{font:500 13px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif;fill:#64748b}
+      .cardValue{font:700 24px ui-monospace,SFMono-Regular,Menlo,monospace;fill:#1d4ed8}
+      .foot{font:400 14px -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif;fill:#64748b}
+    </style>
+  </defs>
+
+  <rect width="1440" height="800" fill="#fbfcfe"/>
+  <rect width="1440" height="800" fill="url(#grid)"/>
+
+  <text x="72" y="72" class="title">Agent Loop 质量评分 · 月度对比</text>
+  <text x="72" y="104" class="sub">quality_evaluation 总分与五维评分 · 2026 年 6 月 – 8 月 13 日（10 分制）</text>
+  <text x="1368" y="72" text-anchor="end" class="mono">QUALITY SCORES / AGENT LOOP</text>
+
+  <!-- August distribution summary; counts intentionally omitted -->
+  <g>
+    <rect x="576" y="124" width="184" height="72" rx="10" class="card"/>
+    <text x="594" y="148" class="cardLabel">8 月总分均值</text>
+    <text x="594" y="180" class="cardValue">8.54</text>
+
+    <rect x="776" y="124" width="184" height="72" rx="10" class="card"/>
+    <text x="794" y="148" class="cardLabel">8 月中位数</text>
+    <text x="794" y="180" class="cardValue">9.0</text>
+
+    <rect x="976" y="124" width="184" height="72" rx="10" class="card"/>
+    <text x="994" y="148" class="cardLabel">达到 8 分及以上</text>
+    <text x="994" y="180" class="cardValue">88.1%</text>
+
+    <rect x="1176" y="124" width="184" height="72" rx="10" class="card"/>
+    <text x="1194" y="148" class="cardLabel">达到 6 分及以上</text>
+    <text x="1194" y="180" class="cardValue">95.8%</text>
+  </g>
+
+  <!-- legend -->
+  <g>
+    <rect x="72" y="148" width="14" height="14" rx="3" class="bar6"/>
+    <text x="94" y="160" class="leg">6 月</text>
+    <rect x="152" y="148" width="14" height="14" rx="3" class="bar7"/>
+    <text x="174" y="160" class="leg">7 月</text>
+    <rect x="232" y="148" width="14" height="14" rx="3" class="bar8"/>
+    <text x="254" y="160" class="leg">8 月 1–13</text>
+  </g>
+
+  <!-- chart: top=260 bottom=680, y range 7.5..10, scale = 168px/分 -->
+  <g>
+    <line x1="110" y1="680" x2="1330" y2="680" class="gridline"/>
+    <line x1="110" y1="596" x2="1330" y2="596" class="gridline"/>
+    <line x1="110" y1="512" x2="1330" y2="512" class="gridline"/>
+    <line x1="110" y1="428" x2="1330" y2="428" class="gridline"/>
+    <line x1="110" y1="344" x2="1330" y2="344" class="gridline"/>
+    <line x1="110" y1="260" x2="1330" y2="260" class="gridline"/>
+    <text x="100" y="684" text-anchor="end" class="axis">7.5</text>
+    <text x="100" y="600" text-anchor="end" class="axis">8.0</text>
+    <text x="100" y="516" text-anchor="end" class="axis">8.5</text>
+    <text x="100" y="432" text-anchor="end" class="axis">9.0</text>
+    <text x="100" y="348" text-anchor="end" class="axis">9.5</text>
+    <text x="100" y="264" text-anchor="end" class="axis">10</text>
+
+    <!-- group 0: ai_overall  8.03 / 8.02 / 8.54 -->
+    <rect x="150" y="591.0" width="28" height="89.0" class="bar6"/>
+    <rect x="186" y="592.6" width="28" height="87.4" class="bar7"/>
+    <rect x="222" y="505.3" width="28" height="174.7" class="bar8"/>
+    <text x="164" y="583" text-anchor="middle" class="val">8.03</text>
+    <text x="200" y="584.6" text-anchor="middle" class="val">8.02</text>
+    <text x="236" y="497.3" text-anchor="middle" class="val8">8.54</text>
+    <text x="227" y="712" text-anchor="middle" class="gname">总分</text>
+    <text x="227" y="732" text-anchor="middle" class="gen">ai_overall</text>
+
+    <!-- group 1: relevance  8.70 / 8.41 / 8.76 -->
+    <rect x="345" y="478.4" width="28" height="201.6" class="bar6"/>
+    <rect x="381" y="527.1" width="28" height="152.9" class="bar7"/>
+    <rect x="417" y="468.3" width="28" height="211.7" class="bar8"/>
+    <text x="359" y="470.4" text-anchor="middle" class="val">8.70</text>
+    <text x="395" y="519.1" text-anchor="middle" class="val">8.41</text>
+    <text x="431" y="460.3" text-anchor="middle" class="val8">8.76</text>
+    <text x="422" y="712" text-anchor="middle" class="gname">相关性</text>
+    <text x="422" y="732" text-anchor="middle" class="gen">relevance</text>
+
+    <!-- group 2: tool_efficiency  8.20 / 7.93 / 8.27 -->
+    <rect x="540" y="562.4" width="28" height="117.6" class="bar6"/>
+    <rect x="576" y="607.8" width="28" height="72.2" class="bar7"/>
+    <rect x="612" y="550.6" width="28" height="129.4" class="bar8"/>
+    <text x="554" y="554.4" text-anchor="middle" class="val">8.20</text>
+    <text x="590" y="599.8" text-anchor="middle" class="val">7.93</text>
+    <text x="626" y="542.6" text-anchor="middle" class="val8">8.27</text>
+    <text x="617" y="712" text-anchor="middle" class="gname">工具效率</text>
+    <text x="617" y="732" text-anchor="middle" class="gen">tool_eff</text>
+
+    <!-- group 3: no_repeated_ops  8.99 / 9.01 / 9.09 -->
+    <rect x="735" y="429.7" width="28" height="250.3" class="bar6"/>
+    <rect x="771" y="426.3" width="28" height="253.7" class="bar7"/>
+    <rect x="807" y="412.9" width="28" height="267.1" class="bar8"/>
+    <text x="749" y="421.7" text-anchor="middle" class="val">8.99</text>
+    <text x="785" y="418.3" text-anchor="middle" class="val">9.01</text>
+    <text x="821" y="404.9" text-anchor="middle" class="val8">9.09</text>
+    <text x="812" y="712" text-anchor="middle" class="gname">重复操作</text>
+    <text x="812" y="732" text-anchor="middle" class="gen">no_rep</text>
+
+    <!-- group 4: error_recovery  8.79 / 8.46 / 8.67 -->
+    <rect x="930" y="463.3" width="28" height="216.7" class="bar6"/>
+    <rect x="966" y="518.7" width="28" height="161.3" class="bar7"/>
+    <rect x="1002" y="483.4" width="28" height="196.6" class="bar8"/>
+    <text x="944" y="455.3" text-anchor="middle" class="val">8.79</text>
+    <text x="980" y="510.7" text-anchor="middle" class="val">8.46</text>
+    <text x="1016" y="475.4" text-anchor="middle" class="val8">8.67</text>
+    <text x="1007" y="712" text-anchor="middle" class="gname">错误恢复</text>
+    <text x="1007" y="732" text-anchor="middle" class="gen">err_rec</text>
+
+    <!-- group 5: completeness  8.11 / 8.03 / 8.45 -->
+    <rect x="1125" y="577.5" width="28" height="102.5" class="bar6"/>
+    <rect x="1161" y="591.0" width="28" height="89.0" class="bar7"/>
+    <rect x="1197" y="520.4" width="28" height="159.6" class="bar8"/>
+    <text x="1139" y="569.5" text-anchor="middle" class="val">8.11</text>
+    <text x="1175" y="583.0" text-anchor="middle" class="val">8.03</text>
+    <text x="1211" y="512.4" text-anchor="middle" class="val8">8.45</text>
+    <text x="1202" y="712" text-anchor="middle" class="gname">完整性</text>
+    <text x="1202" y="732" text-anchor="middle" class="gen">completeness</text>
+  </g>
+
+  <text x="72" y="776" class="foot">纵轴从 7.5 起，仅用于放大高分段差异 · 6–7 月存在任务结构与评分链路变化，不作简单前后因果归因</text>
+</svg>
