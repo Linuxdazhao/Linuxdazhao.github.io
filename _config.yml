@@ -1,0 +1,16 @@
+title: "Linuxdazhao 技术博客"
+description: "记录软件工程、AI 与系统实践"
+lang: zh-CN
+timezone: Asia/Shanghai
+url: "https://linuxdazhao.github.io"
+author:
+  name: "钊 景"
+  url: "https://github.com/Linuxdazhao"
+github_username: Linuxdazhao
+theme: minima
+show_excerpts: true
+header_pages:
+  - about.md
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
