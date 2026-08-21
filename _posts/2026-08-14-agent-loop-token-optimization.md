@@ -10,6 +10,8 @@ image: /articles/agent-loop-token-optimization/agent-loop-token-optimization-cov
 
 ![Agent Loop Token 优化封面](/articles/agent-loop-token-optimization/agent-loop-token-optimization-cover.png)
 
+> 转载说明：本文首发于公司内网，后被「阿里技术」微信公众号转载，公众号版本见[《Agent 终章（Harness 成本篇）：一次百炼账单降低 88% 实战》](https://mp.weixin.qq.com/s/WtmzcME_61Gnc0ipCbi3nA)。
+
 > AI 编码半小时就可以完成一个 agent。但是一个没做过任何优化的 agent，跑一轮就是几十 M token，月底一看费用爆炸。在当前token使用已经进入了精细化时代。目前个人用 token 不少公司已经设限，下一步必然是开始梳理各类 agent ，在 agent 逐渐同质化下最后就是胜者为王，谁用最少的钱跑出最好效果。因此优化 token 不是锦上添花，是 agent 能不能活下去的前提。
 >
 > 本文借鉴 [oh-my-pi(token优化激进派)](https://github.com/can1357/oh-my-pi)、[Codex CLI](https://github.com/openai/codex)、[Grok Build](https://github.com/xai-org/grok-build) 与 [Anthropic Agent 工程笔记](https://www.anthropic.com/engineering/building-effective-agents)，结合百炼 qwen3.7-max 生产实践而成。最后的效果：隐式缓存命中率从 33% 拉到 80%，显式缓存加权命中近九成，一轮 20 次的会话，输入费用降到原来的十分之一。
